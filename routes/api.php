@@ -2,9 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MawabuildingsAPIController;
+use App\Models\building;
+use App\Models\flat;
 
-use App\Http\Controllers\MyAllAPIController;
-use App\Models\colony;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,17 +22,24 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/getcolony',[MyAllAPIController::Class,'getColony']);
-Route::POST('/addcolony',[MyAllAPIController::Class,'addColony']);
-Route::POST('/deletecolony/{id}',[MyAllAPIController::Class,'deleteColony']);
+//Building Table CRUD
+Route::get('/getbuilding',[MAWAbuildingsAPIController::Class,'getallbuilding']);
+Route::POST('/addbuilding',[MAWAbuildingsAPIController::Class,'addbuilding']);
+Route::POST('/getbuilding/{id}',[MAWAbuildingsAPIController::Class,'getonebuilding']);
+Route::POST('/deletebuilding/{id}',[MAWAbuildingsAPIController::Class,'deletebuilding']);
 
 
 
-Route::get('/getuser',[MyAllAPIController::Class,'getUser']);
-Route::POST('/adduser',[MyAllAPIController::Class,'addUser']);
-Route::POST('/deleteuser/{id}',[MyAllAPIController::Class,'deleteUser']);
+//Flats Table CRUD
+Route::get('/getflat',[MAWAbuildingsAPIController::Class,'getallflat']);
+Route::POST('/addflat',[MAWAbuildingsAPIController::Class,'addflat']);
+Route::POST('/getflat/{id}',[MAWAbuildingsAPIController::Class,'getoneflat']);
+Route::POST('/deleteflat/{id}',[MAWAbuildingsAPIController::Class,'deleteflat']);
 
 
-Route::get('/getflat',[MyAllAPIController::Class,'getFlat']);
-Route::POST('/addflat',[MyAllAPIController::Class,'addFlat']);
-Route::POST('/deleteflat/{id}',[MyAllAPIController::Class,'deleteFlat']);
+//currentBill Table CRUD
+Route::get('/getCurrent',[MAWAbuildingsAPIController::Class,'getallCurrent']);
+Route::POST('/addCurrent',[MAWAbuildingsAPIController::Class,'addCurrent']);
+Route::POST('/getCurrent/{id}',[MAWAbuildingsAPIController::Class,'getoneCurrent']);
+Route::POST('/deleteCurrent/{id}',[MAWAbuildingsAPIController::Class,'deleteCurrent']);
+
