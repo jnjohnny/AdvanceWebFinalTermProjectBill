@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class colony extends Model
+class building extends Model
 {
     use HasFactory;
-    protected $table='colonys';
     public $timestamps=false;
 }
