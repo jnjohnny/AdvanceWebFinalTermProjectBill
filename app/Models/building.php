@@ -9,4 +9,7 @@ class building extends Model
 {
     use HasFactory;
     public $timestamps=false;
+    public function flatnumbers(){
+        return $this->hasMany(flatnumber::class,'b_id');
+    }
 }
