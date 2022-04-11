@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class building extends Model
+class flat extends Model
 {
     use HasFactory;
     public $timestamps=false;
-    public function flats(){
-        return $this->hasMany(flat::class,'buildingCode');
+    public function building(){
+        return $this->belongsTo(building::class,'buildingCode'); 
     }
 }

@@ -9,4 +9,7 @@ class colony extends Model
 {
     use HasFactory;
     public $timestamps=false;
+    public function buildings(){
+        return $this->hasMany(building::class,'colonyCode');
+    }
 }

@@ -22,35 +22,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/ViewUser',[NabilEmployeeAPIController::class,'ViewUser']);
-Route::post('/CreateUserConfirm',[NabilEmployeeAPIController::class,'registersubmit']);
-Route::post('/EditUserSubmit',[NabilEmployeeAPIController::class,'EditUserSubmit']);
+Route::get('/Employee/ViewUser',[NabilEmployeeAPIController::class,'ViewUser']);
+Route::post('/Employee/AddUser',[NabilEmployeeAPIController::class,'AddUser']);
+Route::post('/Employee/EditUser',[NabilEmployeeAPIController::class,'EditUser']);
 
-Route::get('/ViewBuilding',[NabilEmployeeAPIController::class,'ViewBuilding']);
-Route::get('/GetBuilding/{id}',[NabilEmployeeAPIController::class,'GetBuilding']);
-Route::get('/EditBuilding',[NabilEmployeeAPIController::class,'EditBuilding']);
-Route::post('/EditBuildingSubmit',[NabilEmployeeAPIController::class,'EditBuildingSubmit']);
+Route::get('/Employee/ViewColony',[NabilEmployeeAPIController::class,'ViewColony']);
+Route::get('/Employee/GetColony/{id}',[NabilEmployeeAPIController::class,'GetColony']);
+Route::post('/Employee/AddColony',[NabilEmployeeAPIController::class,'AddColony']);
+Route::post('/Employee/EditColony',[NabilEmployeeAPIController::class,'EditColony']);
 
-Route::get('/FlatList',[NabilEmployeeAPIController::class,'FlatsList']);
-Route::get('/EditFlat',[NabilEmployeeAPIController::class,'EditFlat']);
-Route::post('/EditFlatSubmit',[NabilEmployeeAPIController::class,'EditFlatSubmit']);
+Route::get('/Employee/ViewBuilding',[NabilEmployeeAPIController::class,'ViewBuilding']);
+Route::post('/Employee/AddBuilding',[NabilEmployeeAPIController::class,'AddBuilding']);
+Route::get('/Employee/GetBuilding/{id}',[NabilEmployeeAPIController::class,'GetBuilding']);
+Route::post('/Employee/EditBuilding',[NabilEmployeeAPIController::class,'EditBuilding']);
 
-Route::get('/PrintBuildingRent',[NabilEmployeeAPIController::class,'PrintBuildingRent']);
-Route::get('/PrintBuildingElec',[NabilEmployeeAPIController::class,'PrintBuildingElec']);
-Route::get('/PrintBuildingWasa',[NabilEmployeeAPIController::class,'PrintBuildingWasa']);
-Route::get('/ViewSubscription',[NabilEmployeeAPIController::class,'ViewSubscription']);
-Route::get('/EditSubscription', [NabilEmployeeAPIController::class, 'EditSubscription']);
-Route::post('/EditSubscriptionConfirm',[NabilEmployeeAPIController::class,'EditSubscriptionConfirm']);
-Route::get('/SubNotify',[NabilEmployeeAPIController::class,'SubNotify'])->name('employee.SubNotify');
-
-Route::get('/Login_view', [LoginController::class, 'Login_view'])->name('user.login');
-Route::post('/Login',[LoginController::class,'Login'])->name('login.submit');
-Route::get('/Logout', [LoginController::class, 'Logout'])->name('user.logout');
-Route::get('/forgotpassword', [LoginController::class, 'forgotpass'])->name('user.forgotpass');
-Route::post('/forgotpassSubmit',[LoginController::class,'forgotpassSubmit'])->name('user.forgotpassSubmit');
-Route::get('/verifycred', [LoginController::class, 'verifycred']);
-Route::get('/ResetPass', [LoginController::class, 'ResetPass']);
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
