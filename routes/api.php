@@ -2,10 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MawabuildingsAPIController;
-use App\Models\building;
-use App\Models\flat;
-
+use App\Http\Controllers\Nabil;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NabilEmployeeAPIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,24 +22,31 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Building Table CRUD
-Route::get('/getbuilding',[MAWAbuildingsAPIController::Class,'getallbuilding']);
-Route::POST('/addbuilding',[MAWAbuildingsAPIController::Class,'addbuilding']);
-Route::POST('/getbuilding/{id}',[MAWAbuildingsAPIController::Class,'getonebuilding']);
-Route::POST('/deletebuilding/{id}',[MAWAbuildingsAPIController::Class,'deletebuilding']);
+Route::post('/Employee/Login',[NabilEmployeeAPIController::class,'Login']);
 
+Route::get('/Employee/ViewUser',[NabilEmployeeAPIController::class,'ViewUser']);
+Route::post('/Employee/AddUser',[NabilEmployeeAPIController::class,'AddUser']);
+Route::post('/Employee/EditUser',[NabilEmployeeAPIController::class,'EditUser']);
 
+Route::get('/Employee/ViewColony',[NabilEmployeeAPIController::class,'ViewColony']);
+Route::get('/Employee/GetColony/{id}',[NabilEmployeeAPIController::class,'GetColony']);
+Route::post('/Employee/AddColony',[NabilEmployeeAPIController::class,'AddColony']);
+Route::post('/Employee/EditColony',[NabilEmployeeAPIController::class,'EditColony']);
 
-//Flats Table CRUD
-Route::get('/getflat',[MAWAbuildingsAPIController::Class,'getallflat']);
-Route::POST('/addflat',[MAWAbuildingsAPIController::Class,'addflat']);
-Route::POST('/getflat/{id}',[MAWAbuildingsAPIController::Class,'getoneflat']);
-Route::POST('/deleteflat/{id}',[MAWAbuildingsAPIController::Class,'deleteflat']);
+Route::get('/Employee/ViewBuilding',[NabilEmployeeAPIController::class,'ViewBuilding']);
+Route::post('/Employee/AddBuilding',[NabilEmployeeAPIController::class,'AddBuilding']);
+Route::get('/Employee/GetBuilding/{id}',[NabilEmployeeAPIController::class,'GetBuilding']);
+Route::post('/Employee/EditBuilding',[NabilEmployeeAPIController::class,'EditBuilding']);
 
+Route::get('/Employee/ViewFlats',[NabilEmployeeAPIController::class,'ViewFlats']);
+Route::post('/Employee/AddFlats',[NabilEmployeeAPIController::class,'AddFlats']);
+Route::post('/Employee/EditFlats',[NabilEmployeeAPIController::class,'EditFlats']);
 
-//currentBill Table CRUD
-Route::get('/getCurrent',[MAWAbuildingsAPIController::Class,'getallCurrent']);
-Route::POST('/addCurrent',[MAWAbuildingsAPIController::Class,'addCurrent']);
-Route::POST('/getCurrent/{id}',[MAWAbuildingsAPIController::Class,'getoneCurrent']);
-Route::POST('/deleteCurrent/{id}',[MAWAbuildingsAPIController::Class,'deleteCurrent']);
+Route::get('/Employee/PrintBuildingRent/{id}',[NabilEmployeeAPIController::class,'PrintBuildingRent']);
+Route::get('/Employee/PrintBuildingElec/{id}',[NabilEmployeeAPIController::class,'PrintBuildingElec']);
+Route::get('/Employee/PrintBuildingWasa/{id}',[NabilEmployeeAPIController::class,'PrintBuildingWasa']);
+
+Route::get('/Employee/ViewSubscription',[NabilEmployeeAPIController::class,'ViewSubscription']);
+Route::post('/Employee/EditSubscription',[NabilEmployeeAPIController::class,'EditSubscription']);
+Route::get('/Employee/SubNotify/{id}',[NabilEmployeeAPIController::class,'SubNotify']);
 

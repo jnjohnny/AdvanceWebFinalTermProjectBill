@@ -9,4 +9,10 @@ class building extends Model
 {
     use HasFactory;
     public $timestamps=false;
+    public function flats(){
+        return $this->hasMany(flat::class,'buildingCode');
+    }
+    public function colony(){
+        return $this->belongsTo(colony::class,'colonyCode'); 
+    }
 }

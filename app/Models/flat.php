@@ -9,4 +9,7 @@ class flat extends Model
 {
     use HasFactory;
     public $timestamps=false;
+    public function building(){
+        return $this->belongsTo(building::class,'buildingCode'); 
+    }
 }
