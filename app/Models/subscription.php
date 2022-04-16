@@ -9,6 +9,6 @@ class subscription extends Model
 {
     use HasFactory;
     public $timestamps=false;
-    protected $primaryKey = 's_id';
+    protected $primaryKey = 'id';
     protected $keytype = 'int';
 }

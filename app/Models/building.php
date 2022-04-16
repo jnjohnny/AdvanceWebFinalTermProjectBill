@@ -12,4 +12,7 @@ class building extends Model
     public function flats(){
         return $this->hasMany(flat::class,'buildingCode');
     }
+    public function colony(){
+        return $this->belongsTo(colony::class,'colonyCode'); 
+    }
 }
